@@ -12,3 +12,24 @@ services:
     build:
       context: .
       dockerfile: Dapr.Samples.Calculator.Add/Dockerfile
+
+  dapr.samples.calculator.subtract:
+    image: ${DOCKER_REGISTRY-}daprsamplescalculatorsubtract
+    build:
+      context: .
+      dockerfile: Dapr.Samples.Calculator.Subtract/Dockerfile
+
+
+  dapr.samples.calculator.multiply:
+    image: ${DOCKER_REGISTRY-}daprsamplescalculatormultiply
+    build:
+      context: .
+      dockerfile: Dapr.Samples.Calculator.Multiply/Dockerfile
+
+
+  dapr.samples.calculator.divide:
+    image: ${DOCKER_REGISTRY-}daprsamplescalculatordivide
+    build:
+      context: .
+      dockerfile: Dapr.Samples.Calculator.Divide/Dockerfile
+

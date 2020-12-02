@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Dapr.Samples.Calculator.Add
+namespace Dapr.Samples.Calculator.Subtract
 {
     public class Startup
     {

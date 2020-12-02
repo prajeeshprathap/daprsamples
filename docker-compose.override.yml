@@ -14,4 +14,23 @@ services:
     ports:
       - "80"
 
+  dapr.samples.calculator.subtract:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+
+  dapr.samples.calculator.multiply:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+
+  dapr.samples.calculator.divide:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
 

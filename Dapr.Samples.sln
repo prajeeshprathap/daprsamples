@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Samples.Calculator.Add", "Dapr.Samples.Calculator.Add\Dapr.Samples.Calculator.Add.csproj", "{D0FF59AD-5DDF-4DA1-88B6-23A1ABD28732}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapr.Samples.Calculator.Add", "Dapr.Samples.Calculator.Add\Dapr.Samples.Calculator.Add.csproj", "{D0FF59AD-5DDF-4DA1-88B6-23A1ABD28732}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{725F9339-995D-4191-AF97-8DC94FC587E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Samples.UI", "Dapr.Samples.UI\Dapr.Samples.UI.csproj", "{A7D6C01C-5483-4E76-95E5-B84B07B27295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapr.Samples.UI", "Dapr.Samples.UI\Dapr.Samples.UI.csproj", "{A7D6C01C-5483-4E76-95E5-B84B07B27295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Samples.Calculator.Subtract", "Dapr.Samples.Calculator.Subtract\Dapr.Samples.Calculator.Subtract.csproj", "{75BC3E48-E77D-4CA1-B235-FD55A6E68BCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Samples.Calculator.Multiply", "Dapr.Samples.Calculator.Multiply\Dapr.Samples.Calculator.Multiply.csproj", "{49045DFC-5B58-498D-9945-F34C691835AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapr.Samples.Calculator.Divide", "Dapr.Samples.Calculator.Divide\Dapr.Samples.Calculator.Divide.csproj", "{A2D94A35-EF10-4C4F-A8B6-F4BEA580C33F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{A7D6C01C-5483-4E76-95E5-B84B07B27295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7D6C01C-5483-4E76-95E5-B84B07B27295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7D6C01C-5483-4E76-95E5-B84B07B27295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75BC3E48-E77D-4CA1-B235-FD55A6E68BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75BC3E48-E77D-4CA1-B235-FD55A6E68BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75BC3E48-E77D-4CA1-B235-FD55A6E68BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75BC3E48-E77D-4CA1-B235-FD55A6E68BCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49045DFC-5B58-498D-9945-F34C691835AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49045DFC-5B58-498D-9945-F34C691835AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49045DFC-5B58-498D-9945-F34C691835AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49045DFC-5B58-498D-9945-F34C691835AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D94A35-EF10-4C4F-A8B6-F4BEA580C33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D94A35-EF10-4C4F-A8B6-F4BEA580C33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D94A35-EF10-4C4F-A8B6-F4BEA580C33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D94A35-EF10-4C4F-A8B6-F4BEA580C33F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
