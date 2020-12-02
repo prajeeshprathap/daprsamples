@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  dapr.samples.ui:
+    image: ${DOCKER_REGISTRY-}daprsamplesui
+    build:
+      context: .
+      dockerfile: Dapr.Samples.UI/Dockerfile
+
+  dapr.samples.calculator.add:
+    image: ${DOCKER_REGISTRY-}daprsamplescalculatoradd
+    build:
+      context: .
+      dockerfile: Dapr.Samples.Calculator.Add/Dockerfile

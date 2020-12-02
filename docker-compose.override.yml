@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+
+  dapr.samples.ui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  dapr.samples.calculator.add:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+

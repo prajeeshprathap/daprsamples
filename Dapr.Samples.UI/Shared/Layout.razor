@@ -1,0 +1,71 @@
+﻿@using Dapr.Samples.UI.Services
+@using System.Threading;
+@inherits LayoutComponentBase
+@inject CalculatorService Service
+
+<div id='calc-contain'>
+
+    <form name="calculator">
+        <input type="text" name="answer" value="@result" />
+        <br />
+
+        <input type="button" value=" 1 " @onclick="@(async () => await SetValue(1))" />
+        <input type="button" value=" 2 " @onclick="@(async () => await SetValue(2))" />
+        <input type="button" value=" 3 " @onclick="@(async () => await SetValue(3))" />
+        <input type="button" value=" + " @onclick='@(() => ChangeOperator("+"))' />
+        <br />
+
+        <input type="button" value=" 4 " @onclick="(async () => await SetValue(4))" />
+        <input type="button" value=" 5 " @onclick="(async () => await SetValue(5))" />
+        <input type="button" value=" 6 " @onclick="(async () => await SetValue(6))" />
+        <input type="button" value=" - " @onclick='(() => ChangeOperator("-"))' />
+        <br />
+
+        <input type="button" value=" 7 " @onclick="(async () => await SetValue(7))" />
+        <input type="button" value=" 8 " @onclick="(async () => await SetValue(8))" />
+        <input type="button" value=" 9 " @onclick="(async () => await SetValue(9))" />
+        <input type="button" value=" x " @onclick='(() => ChangeOperator("*"))' />
+        <br />
+
+        <input type="button" value=" c " @onclick="(() => result = 0)" />
+        <input type="button" value=" 0 " @onclick="(async () => await SetValue(0))" />
+        <input type="button" value=" = " />
+        <input type="button" value=" / " @onclick='(() => ChangeOperator("/"))' />
+        <br />
+
+    </form>
+</div>
+
+
+@code {
+    private int result = 0;
+
+    private string operation = string.Empty;
+
+    private void ChangeOperator(string value)
+    {
+        operation = value;
+    }
+
+    private async Task SetValue(int value)
+    {
+        switch (operation)
+        {
+            case "+":
+                result = await Service.Add(result, value, CancellationToken.None);
+                break;
+            case "-":
+                result = await Service.Subtract(result, value, CancellationToken.None);
+                break;
+            case "*":
+                result = await Service.Multiply(result, value, CancellationToken.None);
+                break;
+            case "/":
+                result = await Service.Divide(result, value, CancellationToken.None);
+                break;
+            default:
+                result = result * 10 + value;
+                break;
+        }
+    }
+}
