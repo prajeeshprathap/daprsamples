@@ -17,7 +17,7 @@ namespace Dapr.Samples.Calculator.Multiply
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureApiDocumentation();
-            services.AddControllers();
+            services.AddControllers().AddDapr();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,6 +31,7 @@ namespace Dapr.Samples.Calculator.Multiply
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapSubscribeHandler();
                 endpoints.MapControllers();
             });
             app.UseSwagger();

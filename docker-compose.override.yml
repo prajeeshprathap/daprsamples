@@ -5,32 +5,120 @@ services:
   dapr.samples.ui:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - placement
+    networks:
+      - dapr-samples
     ports:
       - "80"
 
   dapr.samples.calculator.add:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - placement
+    networks:
+      - dapr-samples
     ports:
       - "80"
 
   dapr.samples.calculator.subtract:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - placement
+    networks:
+      - dapr-samples
     ports:
       - "80"
-
 
   dapr.samples.calculator.multiply:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - placement
+    networks:
+      - dapr-samples
     ports:
       - "80"
-
 
   dapr.samples.calculator.divide:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - placement
+    networks:
+      - dapr-samples
     ports:
       - "80"
+  
+  dapr.samples.ui-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+    "-app-id", "dapr.samples.ui",
+    "-placement-host-address", "placement:50006",
+    "-components-path", "/components"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - dapr.samples.ui
+    network_mode: "service:dapr.samples.ui"
+  
+  dapr.samples.calculator.add-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+    "-app-id", "dapr.samples.calculator.add",
+    "-placement-host-address", "placement:50006",
+    "-components-path", "/components"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - dapr.samples.calculator.add
+    network_mode: "service:dapr.samples.calculator.add"
+  
+  dapr.samples.calculator.subtract-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+    "-app-id", "dapr.samples.calculator.subtract",
+    "-placement-host-address", "placement:50006",
+    "-components-path", "/components"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - dapr.samples.calculator.subtract
+    network_mode: "service:dapr.samples.calculator.subtract"
+  
+  dapr.samples.calculator.multiply-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+    "-app-id", "dapr.samples.calculator.multiply",
+    "-placement-host-address", "placement:50006",
+    "-components-path", "/components"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - dapr.samples.calculator.multiply
+    network_mode: "service:dapr.samples.calculator.multiply"
+  
+  dapr.samples.calculator.divide-dapr:
+    image: "daprio/daprd:edge"
+    command: ["./daprd",
+    "-app-id", "dapr.samples.calculator.divide",
+    "-placement-host-address", "placement:50006",
+    "-components-path", "/components"]
+    volumes:
+      - "./components/:/components"
+    depends_on:
+      - dapr.samples.calculator.divide
+    network_mode: "service:dapr.samples.calculator.divide"
 
+  placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+    networks:
+      - dapr-samples
+
+networks:
+    dapr-samples:
